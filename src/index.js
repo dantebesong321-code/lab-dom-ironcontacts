@@ -166,67 +166,45 @@ const likedBtn = document.querySelectorAll(".btn-like").forEach((btn) => {
 
 // Bonus: ITERATION 4 - Add Random Contacts
 
-// const addContactBtn = document.querySelector(".btn-add-random");
+const addContactBtn = document.querySelector("#btn-add-random");
 
-// addContactBtn.addEventListener("click", () => { 
+const randomContactAdd = contacts [Math.floor(Math.random() * contacts.length)];
+const splicedContactArr = contacts.splice(randomContactAdd, 1);
 
-//    const newRow = document.createElement("tr");
-// newRow.innerHTML = `
-//   <td>
-//     <img src="${randomContact.pictureUrl}" />
-//   </td>
-//   <td> ${randomContact.name} </td>
-//   <td> ${randomContact.popularity.toFixed(2)} </td>
-//   <td>
-//     <button class="btn-delete">Delete</button>
-//   </td>
-//   <td>
-//     <button class="btn-like">
-//       <img src="./images/icon.png" alt="like" />
-//     </button>
-//   </td>
-// `;
 
-// tableBody.appendChild(newRow);
+//Building the table for new randome contact.....
 
-// newRow.querySelector(".btn-like").addEventListener("click", () => {
-//     newRow.querySelector(".btn-like").classList.toggle("selected");
-//   });
+const newRow = document.createElement("tr");
+newRow.innerHTML = `
+  <td>
+    <img src="${randomContactAdd.pictureUrl}" />
+  </td>
+  <td> ${randomContactAdd.name} </td>
+  <td> ${randomContactAdd.popularity.toFixed(2)} </td>
+  <td>
+    <button class="btn-delete">Delete</button>
+  </td>
+  <td>
+    <button class="btn-like">
+      <img src="./images/icon.png" alt="like" />
+    </button>
+  </td>
+`;
 
-//   newRow.querySelector(".btn-delete").addEventListener("click", () => {
-//     newRow.remove();
-//   });
-// });
 
-// const randomContactAdd = contacts [Math.floor(Math.random() * contacts.length)];
-// const splicedContactArr = contacts.splice(randomContactAdd, 1);
 
-// const addRanContact = splicedContactArr [0];
+newRow.querySelector(".btn-like").addEventListener("click", () => {
+newRow.querySelector(".btn-like").classList.toggle("selected");
+  });
 
-// const newRow = document.createElement("tr");
-// newRow.innerHTML = `
-//   <td>
-//     <img src="${randomContact.pictureUrl}" />
-//   </td>
-//   <td> ${randomContact.name} </td>
-//   <td> ${randomContact.popularity.toFixed(2)} </td>
-//   <td>
-//     <button class="btn-delete">Delete</button>
-//   </td>
-//   <td>
-//     <button class="btn-like">
-//       <img src="./images/icon.png" alt="like" />
-//     </button>
-//   </td>
-// `;
+  newRow.querySelector(".btn-delete").addEventListener("click", () => {
+  newRow.remove();
+  });
 
-// tableBody.appendChild(newRow);
+  // Adding event listener....
 
-// newRow.querySelector(".btn-like").addEventListener("click", () => {
-//     newRow.querySelector(".btn-like").classList.toggle("selected");
-//   });
+  addContactBtn.addEventListener("click", () => { 
+  tableBody.appendChild(newRow)++;
+  });
 
-//   newRow.querySelector(".btn-delete").addEventListener("click", () => {
-//     newRow.remove();
-//   });
-// 
+ 
